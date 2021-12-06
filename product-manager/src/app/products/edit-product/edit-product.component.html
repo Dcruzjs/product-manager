@@ -1,0 +1,26 @@
+<div class="container-lg">
+  <div class="w-50 border mx-auto">
+    <form (ngSubmit)="updateProduct()">
+      <p>Product's Info</p>
+      <p *ngIf="errorMsg.length > 0">{{errorMsg}} <a routerLink='/new'> Let's add it</a></p>
+      <div>
+    
+        {{ product | json}}
+      </div>
+      <div class="row mb-3">
+        <label for="name">Name:</label>
+        <input type="text" name="name" [(ngModel)]="product.name" required>
+      </div>
+      <div class="row mb-3">
+        <label for="price">Price:</label>
+        <input type="number" name="price" [(ngModel)]="product.price" required>
+      </div>
+      <div class="row mb-3">
+        <label for="imageUrl">imageUrl:</label>
+        <input type="text" name="imageUrl" [(ngModel)]="product.imageUrl" required>
+      </div>
+      <button class="btn btn-outline-warning" type="submit">Update</button>
+    </form>
+      <button id="{{product._id}}" (click)="deleteProduct($event)" class="btn mt-3 btn-outline-danger mt-3">Delete</button>
+    </div>
+</div>

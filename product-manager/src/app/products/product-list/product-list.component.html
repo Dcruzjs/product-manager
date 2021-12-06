@@ -1,0 +1,31 @@
+<h3>Products's List</h3>
+<router-outlet></router-outlet>
+<div class="container-lg">
+  <div class="w-100  mx-auto" *ngIf= " products$ | async as products">
+    <ng-template [ngIf]=" products.products.length > 0" [ngIfElse]="noProducts">
+      <div class="d-flex" *ngFor="let product of products.products;">
+      <div class="w-25 border product">
+        <div style="width: 200px; height: 200px;" class="w-100 bg-secondary img">
+
+        </div>
+        <div class="description">
+          <div>
+            {{product.name}} - {{product.price}}
+          </div>
+
+        </div>
+        <div class="actions">
+          <a routerLink="edit/{{product._id}}" class="btn">Edit</a>
+          <button class="btn" id="{{product._id}}" (click)="deleteProduct($event)">Delete</button>
+
+        </div>
+      </div> 
+    </div>
+  </ng-template>
+  
+  <ng-template #noProducts>
+    <div>There are no Products to show...</div>
+  </ng-template>
+  
+  </div>
+</div>

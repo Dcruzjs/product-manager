@@ -1,0 +1,25 @@
+<div class="w-50 mx-auto">
+
+  <form (ngSubmit)="createProduct()" >
+    <p>Product's Info</p>
+    <div>
+      
+      {{ product | json}}
+    </div>
+    <div class="row mb-3">
+      <label for="name">Name:</label>
+      <input type="text" name="name" [(ngModel)]="product.name" required>
+    </div>
+    <div class="row mb-3">
+      <label for="price">Price:</label>
+      <input type="number" name="price" [(ngModel)]="product.price" required>
+    </div>
+    <div class="row mb-3">
+      <label for="imageUrl">imageUrl:</label>
+      <input type="text" name="imageUrl" [(ngModel)]="product.imageUrl" required>
+    </div>
+  
+    <button type="submit" class="btn mb-3 me-3 btn-outline-primary">Submit</button>
+    <a routerLink="list" class="btn mb-3 me-3 btn-outline-warning">Cancel</a>
+  </form>
+</div>
